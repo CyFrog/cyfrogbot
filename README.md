@@ -1,4 +1,4 @@
-# Honk Tip Bot
+# CyFrogBot is a fork of Honk Tip Bot and like that bot this bot only tips Honk
 
 ## About
 
