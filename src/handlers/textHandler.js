@@ -17,7 +17,7 @@ module.exports.textHandler = async bot => {
 // Default answer to unknown messages
 const privateChat = ctx => {
   ctx.reply(
-    `Hello ${ctx.from.first_name} this is Honk tip bot.\nSee /help for more info.`,
+    `Hello ${ctx.from.first_name} this is CyFrog tip bot.\nSee /help for more info.`,
     Markup.keyboard([
       ["/balance", "/help"],
       ["/deposit", "/withdraw"]
@@ -36,8 +36,8 @@ const groupChat = async ctx => {
   const re = /[0-9]+ *honk/gi;
   const reComma = /(\d{0,3},)?(\d{3},)?\d{0,3} *honk/i;
   const reDot = /\d*\.?\d* *honk/gi;
-  const reClown = /🤡/g;
-  const reCircus = /🎪/g;
+  const reClown = /🐸/g;
+  const reCircus = /🦎/g;
 
   if (ctx.message.reply_to_message) {
     let text = ctx.message.text;
@@ -48,7 +48,7 @@ const groupChat = async ctx => {
       if (text.includes(".")) {
         // With dot "[number].[number] honk"
         ctx.replyWithMarkdown(
-          `*${ctx.from.first_name}* the lowest amount to give/send/tip is 1 honk. Please check your amount and try again.`
+          `*${ctx.from.first_name}* the lowest amount to give/send/tip is 1 CyFrog. Please check your amount and try again.`
         );
       } else if (text.includes(",")) {
         // With comma "[number],[number] honk"
@@ -68,12 +68,12 @@ const groupChat = async ctx => {
       let amount = 0;
       if (text.match(reClown)) {
         const matchArray = text.match(reClown);
-        amount += matchArray.length * 1000;
+        amount += matchArray.length * 1;
       }
 
       if (text.match(reCircus)) {
         const matchArray = text.match(reCircus);
-        amount += matchArray.length * 10000;
+        amount += matchArray.length * 5;
       }
 
       const tipResult = await tip(ctx, amount);
@@ -113,10 +113,10 @@ const tip = async (ctx, amount) => {
   if (transactionSuccess) {
     msg += `*${fromUser.first_name}* tipped ${amount.toLocaleString(
       "en-US"
-    )} 🤡*HONK*🤡 to *${toUser.first_name}*`;
+    )} 🐸*CyFrog*🐸 to *${toUser.first_name}*`;
   } else {
     console.log("Need more HONK");
-    msg += `*${fromUser.first_name}* you need more 🤡*HONK*🤡`;
+    msg += `*${fromUser.first_name}* you need more 🐸*CyFrog*🐸`;
   }
   return msg;
 };
