@@ -6,7 +6,7 @@ module.exports.deposit = async ctx => {
   const SLPaddress = ctx.session.wallet.SLPaddress;
 
   ctx.replyWithMarkdown(
-    `🤡*HONKBOT HOW TO DEPOSIT*🤡\n${ctx.from.first_name} deposit HONK to this address:\n\n \`\`\`${SLPaddress}\`\`\``,
+    `🐸*CYFROGBOT HOW TO DEPOSIT*🐸\n${ctx.from.first_name} deposit CyFrog to this address:\n\n \`\`\`${SLPaddress}\`\`\``,
     Markup.keyboard([["/balance", "/help"], ["/deposit", "/withdraw"]])
       .oneTime()
       .resize()
