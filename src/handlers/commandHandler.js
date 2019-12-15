@@ -54,14 +54,14 @@ const start = async ctx => {
 
 const help = ctx => {
   helpMsg = `
-🤡*HONKBOT HELP PAGE*🤡\nWhat can I help you with? Here are a list of my commands:
+🐸*CyFrog HELP PAGE*🐸\nWhat can I help you with? Here are a list of my commands:
                           
 Type:
 
 /deposit - for information on depositing 
-/help - for information on tipping *HONK* 
-/withdraw - withdrawing *HONK*  
-/balance - get your *HONK* balance
+/help - for information on tipping *CyFrog* 
+/withdraw - withdrawing *CyFrog*  
+/balance - get your *CyFrog* balance
 
 If you need further assistance, please contact @k\\_patrick
 `
