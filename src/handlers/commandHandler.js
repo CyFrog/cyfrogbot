@@ -63,7 +63,7 @@ Type:
 /withdraw - withdrawing *CyFrog*  
 /balance - get your *CyFrog* balance
 
-If you need further assistance, please contact @k\\_patrick
+If you need further assistance, please contact @dreamtrove
 `
   ctx.replyWithMarkdown(
     helpMsg,
