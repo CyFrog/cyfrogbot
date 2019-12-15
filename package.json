@@ -1,13 +1,13 @@
 {
-  "name": "honktipbot",
+  "name": "cyfrogtipbot",
   "version": "1.0.0",
-  "description": "Honk Tip Bot",
+  "description": "Cyfrog Tip Bot",
   "main": "index.js",
   "scripts": {
     "start": "node index.js"
   },
   "keywords": [],
-  "author": "Artur Temirov",
+  "author": "Artur Temirov","tweaked by dreamtrove for Cyfrog"
   "license": "ISC",
   "dependencies": {
     "amqplib": "^0.5.5",
