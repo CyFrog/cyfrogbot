@@ -28,7 +28,7 @@ module.exports.notification = (ctx, balances) => {
     sendMessageToAdmins(ctx, message);
   } else if (tokens < minTokens) {
     message +=
-      `Warning! Minimum HONK amount (${minTokens}) reached:\n` + balance;
+      `Warning! Minimum CyFrog amount (${minTokens}) reached:\n` + balance;
     sendMessageToAdmins(ctx, message);
   }
 };
