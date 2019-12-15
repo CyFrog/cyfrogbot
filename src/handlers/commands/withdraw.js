@@ -80,7 +80,7 @@ module.exports.withdraw = async ctx => {
   } else {
     // Wrong command format! to withdraw tokens use follow format
     msg += `
-🤡*HOW TO WITHDRAW*🤡\nTo withdraw tokens the proper syntax is:\n\n*/withdraw "amount" "simpleledger address"*
+🐸*HOW TO WITHDRAW*🐸\nTo withdraw tokens the proper syntax is:\n\n*/withdraw "amount" "simpleledger address"*
 \n\nExample:\n\n/withdraw 10 simpleledger:123456abcdefg123456abcdefg123456abcdefg`;
   }
 
