@@ -15,7 +15,7 @@ bot.context.db = { lockedUsers: [] };
 // log
  bot.use(Telegraf.log()); // for debugging
 
- Logger
+// Logger
  bot.use(async (ctx, next) => {
    console.log("**********");
    if (ctx.updateSubTypes[0] === 'text') console.log(`text:${ctx.message.text}\nfrom ${ctx.from.id}`);
