@@ -11,14 +11,17 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
 bot.use(session());
 bot.use(commandParts());
 bot.context.db = { lockedUsers: [] };
-// bot.use(Telegraf.log()); // for debugging
 
-// Logger
-// bot.use(async (ctx, next) => {
-//   console.log("**********");
-//   if (ctx.updateSubTypes[0] === 'text') console.log(`text:${ctx.message.text}\nfrom ${ctx.from.id}`);
-//   await next();
-// });
+// log
+ bot.use(Telegraf.log()); // for debugging
+
+ Logger
+ bot.use(async (ctx, next) => {
+   console.log("**********");
+   if (ctx.updateSubTypes[0] === 'text') console.log(`text:${ctx.message.text}\nfrom ${ctx.from.id}`);
+   await next();
+ });
+// end log
 
 bot.catch(e => console.log(e));
 
