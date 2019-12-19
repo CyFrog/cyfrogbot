@@ -40,7 +40,7 @@ module.exports.withdraw = async ctx => {
 
     if (
       Number.isInteger(amount) &&
-      wallet.cyPoints >= amount &&
+      wallet.honkPoints >= amount &&
       amount >= withdrawLimit &&
       amount <= withdrawMaximum &&
       delta >= withdrawDelayTime
@@ -91,7 +91,7 @@ const withdrawTokens = async (session, amount, destSLPaddr) => {
   // Main withdraw process
   // Update Session Balance
 
-  session.wallet.cyPoints -= amount;
+  session.wallet.honkPoints -= amount;
   session.lastWithdraw = Date.now();
   await saveSession(session.from.id, session);
   try {
@@ -141,7 +141,7 @@ const withdrawValidation = async (ctx, session, amount, destSLPaddr) => {
     } else {
       // If withdraw transaction failed return tokens back
       prevSession = await getSession(session.from.id);
-      prevSession.wallet.cyPoints += amount;
+      prevSession.wallet.honkPoints += amount;
       await saveSession(prevSession.from.id, prevSession);
       return `Sorry! We can't process this transaction. Please try later.`;
     }
