@@ -60,10 +60,10 @@ module.exports.withdraw = async ctx => {
     } else {
       if (amount < withdrawLimit) {
         msg += `Withdraw limit : ${withdrawLimit}`;
-      } else if (wallet.honkPoints < amount) {
+      } else if (wallet.cyPoints < amount) {
         //Not enough
         msg += `Wrong amount ${args[0]}, you don't have enough tokens:${
-          wallet.honkPoints
+          wallet.cyPoints
         }`;
       } else if (delta < withdrawDelayTime) {
         const left = (withdrawDelayTime - delta).toFixed(2);
@@ -91,7 +91,7 @@ const withdrawTokens = async (session, amount, destSLPaddr) => {
   // Main withdraw process
   // Update Session Balance
 
-  session.wallet.honkPoints -= amount;
+  session.wallet.cyPoints -= amount;
   session.lastWithdraw = Date.now();
   await saveSession(session.from.id, session);
   try {
@@ -116,10 +116,10 @@ const withdrawValidation = async (ctx, session, amount, destSLPaddr) => {
     console.log("Escrow balance:\n", JSON.stringify(balances, null, 2));
 
     if (tokenBalance < amount) {
-      // Escrow wallet doesn't have enough HONK tokens to make transaction
+      // Escrow wallet doesn't have enough CyFrog tokens to make transaction
       let warnMsg =
-        "ALERT! Escrow wallet doesn't have enough HONK tokens to make transaction";
-      warnMsg += `\nEscrow balance: ${tokenBalance} HONK; Amount: ${amount}`;
+        "ALERT! Escrow wallet doesn't have enough CyFrog tokens to make transaction";
+      warnMsg += `\nEscrow balance: ${tokenBalance} CyFrog; Amount: ${amount}`;
       admin.alert(ctx, warnMsg);
       console.log(warnMsg);
       return `Sorry! We currently can't process this transaction. Please try later.`;
@@ -141,7 +141,7 @@ const withdrawValidation = async (ctx, session, amount, destSLPaddr) => {
     } else {
       // If withdraw transaction failed return tokens back
       prevSession = await getSession(session.from.id);
-      prevSession.wallet.honkPoints += amount;
+      prevSession.wallet.cyPoints += amount;
       await saveSession(prevSession.from.id, prevSession);
       return `Sorry! We can't process this transaction. Please try later.`;
     }
