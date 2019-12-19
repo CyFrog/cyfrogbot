@@ -60,10 +60,10 @@ module.exports.withdraw = async ctx => {
     } else {
       if (amount < withdrawLimit) {
         msg += `Withdraw limit : ${withdrawLimit}`;
-      } else if (wallet.cyPoints < amount) {
+      } else if (wallet.honkPoints < amount) {
         //Not enough
         msg += `Wrong amount ${args[0]}, you don't have enough tokens:${
-          wallet.cyPoints
+          wallet.honkPoints
         }`;
       } else if (delta < withdrawDelayTime) {
         const left = (withdrawDelayTime - delta).toFixed(2);
