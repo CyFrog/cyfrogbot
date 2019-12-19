@@ -42,19 +42,19 @@ const pushTransaction = async (amount, ctx, toUserSession) => {
     return false;
   }
 
-  const fromUserPoints = fromUserSession.wallet.honkPoints;
+  const fromUserPoints = fromUserSession.wallet.cyPoints;
 
   if (fromUserPoints >= amount && amount !== 0) {
-    fromUserSession.wallet.honkPoints -= amount;
+    fromUserSession.wallet.cyPoints -= amount;
     // Save fromUser session to dynamoDB
     await saveSession(fromUserSession.from.id, fromUserSession);
 
-    toUserSession.wallet.honkPoints = toUserSession.wallet.honkPoints + amount;
+    toUserSession.wallet.cyPoints = toUserSession.wallet.cyPoints + amount;
     // Save toUser session to dynamoDB
     await saveSession(toUserSession.from.id, toUserSession);
 
     console.log(
-      `${ctx.from.first_name} tipped ${amount} HONK to ${toUserSession.from.first_name}`
+      `${ctx.from.first_name} tipped ${amount} CyFrog to ${toUserSession.from.first_name}`
     );
     return true;
   } else {
