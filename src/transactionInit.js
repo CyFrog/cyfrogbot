@@ -27,6 +27,8 @@ module.exports.transactionInit = async (amount, ctx, toUser) => {
 };
 
 const pushTransaction = async (amount, ctx, toUserSession) => {
+  
+  amount= parseFloat(amount);
   console.log(
     `TransactionInit:: pushTransaction started from: ${
       ctx.session.from.id
@@ -42,14 +44,17 @@ const pushTransaction = async (amount, ctx, toUserSession) => {
     return false;
   }
 
-  const fromUserPoints = fromUserSession.wallet.cyPoints;
+  const fromUserPoints = fromUserSession.wallet.honkPoints;
 
   if (fromUserPoints >= amount && amount !== 0) {
-    fromUserSession.wallet.cyPoints -= amount;
+
+    
+    fromUserSession.wallet.honkPoints=parseFloat(fromUserSession.wallet.honkPoints - amount);
+    // fromUserSession.wallet.honkPoints - amount;
     // Save fromUser session to dynamoDB
     await saveSession(fromUserSession.from.id, fromUserSession);
 
-    toUserSession.wallet.cyPoints = toUserSession.wallet.cyPoints + amount;
+    toUserSession.wallet.honkPoints = parseFloat(toUserSession.wallet.honkPoints + amount);
     // Save toUser session to dynamoDB
     await saveSession(toUserSession.from.id, toUserSession);
 
