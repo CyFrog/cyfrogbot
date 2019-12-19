@@ -40,7 +40,7 @@ module.exports.withdraw = async ctx => {
 
     if (
       Number.isInteger(amount) &&
-      wallet.honkPoints >= amount &&
+      wallet.cyPoints >= amount &&
       amount >= withdrawLimit &&
       amount <= withdrawMaximum &&
       delta >= withdrawDelayTime
