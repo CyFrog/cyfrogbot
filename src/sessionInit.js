@@ -33,7 +33,7 @@ const newSession = async ctx => {
     from: ctx.from,
     startedAt: Date.now(),
     wallet: {
-      honkPoints: 0,
+      cyPoints: 0,
       SLPaddress: keysObj.slpAddress,
       keys: keysObj,
       transferedDeposits: {
@@ -57,7 +57,7 @@ const newSessionByData = async (from, amount) => {
     from: from,
     startedAt: Date.now(),
     wallet: {
-      honkPoints: amount,
+      cyPoints: amount,
       SLPaddress: keysObj.slpAddress,
       keys: keysObj,
       transferedDeposits: {
