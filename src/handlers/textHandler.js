@@ -33,9 +33,9 @@ const groupChat = async ctx => {
   // RegEx "[number] cy";
   // Example: "10 cy" , " 10cy" , "10 CyFrog";
 
-  const re = /[0-9]+ *frog/gi;
-  const reComma = /(\d{0,3},)?(\d{3},)?\d{0,3} *frog/i;
-  const reDot = /\d*\.?\d* *frog/gi;
+  const re = /[0-9]+ *cyfrog/gi;
+  const reComma = /(\d{0,3},)?(\d{3},)?\d{0,3} *cyfrog/i;
+  const reDot = /\d*\.?\d* *cyfrog/gi;
   const reClown = /🐸/g;
   const reCircus = /🦎/g;
 
