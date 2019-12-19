@@ -30,12 +30,12 @@ const privateChat = ctx => {
 
 const groupChat = async ctx => {
   /// Listen for Tip Message from Group Chat
-  // RegEx "[number] honk";
-  // Example: "10 honk" , " 10honk" , "10 HoNk";
+  // RegEx "[number] cy";
+  // Example: "10 cy" , " 10cy" , "10 CyFrog";
 
-  const re = /[0-9]+ *honk/gi;
-  const reComma = /(\d{0,3},)?(\d{3},)?\d{0,3} *honk/i;
-  const reDot = /\d*\.?\d* *honk/gi;
+  const re = /[0-9]+ *frog/gi;
+  const reComma = /(\d{0,3},)?(\d{3},)?\d{0,3} *frog/i;
+  const reDot = /\d*\.?\d* *frog/gi;
   const reClown = /🐸/g;
   const reCircus = /🦎/g;
 
@@ -46,7 +46,7 @@ const groupChat = async ctx => {
       text = text.includes(".") ? text.match(reDot)[0] : text.match(reComma)[0];
 
       if (text.includes(".")) {
-        // With dot "[number].[number] honk"
+        // With dot "[number].[number] cyfrog"
         ctx.replyWithMarkdown(
           `*${ctx.from.first_name}* the lowest amount to give/send/tip is 1 CyFrog. Please check your amount and try again.`
         );
