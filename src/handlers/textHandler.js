@@ -84,8 +84,7 @@ console.log("we be here dot or comma");
     }
   }
 };
-        console.log("[[["+amount+"]]]");                        
-
+   
 const tip = async (ctx, amount) => {
   amount = parseInt(amount);
   const fromUser = ctx.from;
@@ -101,9 +100,6 @@ const tip = async (ctx, amount) => {
   }
   await sessionInit(ctx);
 
-  
-          console.log("[["+amount+"]]");                        
-
   // Tip to bot deprecated
   if (toUser.is_bot) {
     if (fromUser.id !== toUser.id) toggleLock(ctx, toUser.id);
@@ -116,10 +112,6 @@ const tip = async (ctx, amount) => {
   if (fromUser.id !== toUser.id) toggleLock(ctx, toUser.id);
   toggleLock(ctx, fromUser.id);
 
-  
-  
-          console.log("["+amount+"]");          
-  
   let msg = "";
   if (transactionSuccess) {
     msg += `*${fromUser.first_name}* tipped ${amount.toLocaleString(
