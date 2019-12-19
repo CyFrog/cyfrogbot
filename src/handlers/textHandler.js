@@ -45,13 +45,13 @@ const groupChat = async ctx => {
     if (parseFloat(text.match(reDot)) || parseFloat(text.match(reComma))) {
       text = text.includes(".") ? text.match(reDot)[0] : text.match(reComma)[0];
 
-//      if (text.includes(".")) {
-//        // With dot "[number].[number] cyfrog"
+      if (text.includes(".")) {
+        // With dot "[number].[number] cyfrog"
 //        ctx.replyWithMarkdown(
 //          `*${ctx.from.first_name}* the lowest amount to give/send/tip is 1 CyFrog. Please check your amount and try again.`
 //        );
-//      } else 
-        if (text.includes(",")) {
+        let amount = parseFloat(text);
+      } else if (text.includes(",")) {
         // With comma "[number],[number] cyfrog"
         let amount = text.replace(/,/g, "");
 
