@@ -19,7 +19,7 @@ module.exports.checkEscrowBalance = async () => {
     // Update escrow balance
     const balances = await getBalance(process.env.ESCROW_WALLET_MNEMONIC);
     session.wallet.bchSatoshi = balances.bchBalance;
-    session.wallet.honkPoints = balances.tokens;
+    session.wallet.cyPoints = balances.tokens;
     await saveSession(escrowId, session);
 
     balances.address = session.wallet.SLPaddress;
@@ -27,7 +27,7 @@ module.exports.checkEscrowBalance = async () => {
   } else {
     // return balance
     const balances = {
-      tokens: session.wallet.honkPoints,
+      tokens: session.wallet.cyPoints,
       bchBalance: session.wallet.bchSatoshi,
       address: session.wallet.SLPaddress
     };
