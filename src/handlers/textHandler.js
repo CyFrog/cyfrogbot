@@ -51,7 +51,7 @@ const groupChat = async ctx => {
 //          `*${ctx.from.first_name}* the lowest amount to give/send/tip is 1 CyFrog. Please check your amount and try again.`
 //        );
         let amount = parseFloat(text.replace(/cyfrog/g, ""));
-        console.log(amount);                        
+        console.log('[[[['+amount+']]]]');                        
                                 
       } else if (text.includes(",")) {
         // With comma "[number],[number] cyfrog"
