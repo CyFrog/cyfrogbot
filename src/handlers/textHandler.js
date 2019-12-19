@@ -51,13 +51,13 @@ const groupChat = async ctx => {
           `*${ctx.from.first_name}* the lowest amount to give/send/tip is 1 CyFrog. Please check your amount and try again.`
         );
       } else if (text.includes(",")) {
-        // With comma "[number],[number] honk"
+        // With comma "[number],[number] cyfrog"
         let amount = text.replace(/,/g, "");
 
         const tipResult = await tip(ctx, amount);
         ctx.replyWithMarkdown(tipResult);
       } else if (text.match(re)) {
-        //"[number] honk"
+        //"[number] cyfrog"
         let amount = ctx.message.text.match(re)[0].split(" ")[0];
 
         const tipResult = await tip(ctx, amount);
@@ -115,7 +115,7 @@ const tip = async (ctx, amount) => {
       "en-US"
     )} 🐸*CyFrog*🐸 to *${toUser.first_name}*`;
   } else {
-    console.log("Need more HONK");
+    console.log("Need more CyFrog");
     msg += `*${fromUser.first_name}* you need more 🐸*CyFrog*🐸`;
   }
   return msg;
