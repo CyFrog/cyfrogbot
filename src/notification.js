@@ -30,7 +30,7 @@ module.exports.notification = bot => {
 
           bot.telegram.sendMessage(
             notificationData[0].userId,
-            `New deposit received: ${notificationData[0].amount} HONK`
+            `New deposit received: ${notificationData[0].amount} CyFrog`
           );
         },
         {
