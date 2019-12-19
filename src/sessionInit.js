@@ -57,7 +57,7 @@ const newSessionByData = async (from, amount) => {
     from: from,
     startedAt: Date.now(),
     wallet: {
-      cyPoints: amount+0.00,
+      cyPoints: amount,
       SLPaddress: keysObj.slpAddress,
       keys: keysObj,
       transferedDeposits: {
