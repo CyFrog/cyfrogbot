@@ -80,8 +80,9 @@ const groupChat = async ctx => {
       const tipResult = await tip(ctx, amount);
       ctx.replyWithMarkdown(tipResult);
     } 
-    console.log(6666666);
-  };   
+  } 
+};   
+
 const tip = async (ctx, amount) => {
   console.log(9999999);
 
