@@ -72,12 +72,12 @@ const groupChat = async ctx => {
   //    let amount = 0;
       if (text.match(reClown)) {
         const matchArray = text.match(reClown);
-        amount += matchArray.length * 1;
+        amount += matchArray.length * 0.01;
       }
 
       if (text.match(reCircus)) {
         const matchArray = text.match(reCircus);
-        amount += matchArray.length * 5;
+        amount += matchArray.length * 1;
       }
       const tipResult = await tip(ctx, amount);
       ctx.replyWithMarkdown(tipResult);
