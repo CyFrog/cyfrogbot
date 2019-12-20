@@ -81,11 +81,16 @@ console.log("we be here dot or comma");
 
       const tipResult = await tip(ctx, amount);
       ctx.replyWithMarkdown(tipResult);
+  console.log(6666666);
     }
+  console.log(777777);
   }
+  console.log(888888);
 };
    
 const tip = async (ctx, amount) => {
+  console.log(9999999);
+
   console.log(amount);
   amount = parseFloat(amount);
   console.log(amount);
