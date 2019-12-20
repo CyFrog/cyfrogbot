@@ -69,7 +69,7 @@ const groupChat = async ctx => {
       }
     } else if (text.match(reClown) || text.match(reCircus)) {
       // reClown && reCircus
-  //    let amount = 0;
+      let amount = 0;
       if (text.match(reClown)) {
         const matchArray = text.match(reClown);
         amount += matchArray.length * 0.01;
