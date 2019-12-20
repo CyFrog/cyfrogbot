@@ -29,24 +29,25 @@ const privateChat = ctx => {
 };
 
 const groupChat = async ctx => {
+
   /// Listen for Tip Message from Group Chat
   // RegEx "[number] cy";
   // Example: "10 cy" , " 10cy" , "10 CyFrog";
-
   const re = /[0-9]+ *cyfrog/gi;
   const reComma = /(\d{0,3},)?(\d{3},)?\d{0,3} *cyfrog/i;
   const reDot = /\d*\.?\d* *cyfrog/gi;
   const reClown = /🐸/g;
   const reCircus = /🦎/g;
-
   if (ctx.message.reply_to_message) {
-    let text = ctx.message.text;
 
-    if (parseFloat(text.match(reDot)) || parseFloat(text.match(reComma))) {
+    let text = ctx.message.text;
+    if (  parseFloat(text.match(reDot)) || parseFloat(text.match(reComma))) {
+    
       text = text.includes(".") ? text.match(reDot)[0] : text.match(reComma)[0];
-console.log("we be here dot or comma");           
+      console.log("we be here dot or comma");           
       if (text.includes(".")) {
-        // With dot "[number].[number] cyfrog"
+
+//      With dot "[number].[number] cyfrog"
 //        ctx.replyWithMarkdown(
 //          `*${ctx.from.first_name}* the lowest amount to give/send/tip is 1 CyFrog. Please check your amount and try again.`
 //        );
@@ -56,13 +57,11 @@ console.log("we be here dot or comma");
       } else if (text.includes(",")) {
         // With comma "[number],[number] cyfrog"
         let amount = text.replace(/,/g, "");
-
         const tipResult = await tip(ctx, amount);
         ctx.replyWithMarkdown(tipResult);
       } else if (text.match(re)) {
         //"[number] cyfrog"
         let amount = ctx.message.text.match(re)[0].split(" ")[0];
-
         const tipResult = await tip(ctx, amount);
         ctx.replyWithMarkdown(tipResult);
       }
@@ -82,10 +81,7 @@ console.log("we be here dot or comma");
       ctx.replyWithMarkdown(tipResult);
     } 
     console.log(6666666);
-    }
-  console.log(777777);
-  };
-   
+  };   
 const tip = async (ctx, amount) => {
   console.log(9999999);
 
