@@ -87,6 +87,7 @@ console.log("we be here dot or comma");
    
 const tip = async (ctx, amount) => {
   amount = parseFloat(amount);
+  console.log(amount);
   const fromUser = ctx.from;
   const toUser = ctx.message.reply_to_message.from;
 
