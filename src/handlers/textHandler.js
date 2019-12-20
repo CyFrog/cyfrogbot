@@ -78,14 +78,13 @@ console.log("we be here dot or comma");
         const matchArray = text.match(reCircus);
         amount += matchArray.length * 5;
       }
-    }
       const tipResult = await tip(ctx, amount);
       ctx.replyWithMarkdown(tipResult);
-  console.log(6666666);
+    } 
+    console.log(6666666);
     }
   console.log(777777);
   };
-  console.log(888888);
    
 const tip = async (ctx, amount) => {
   console.log(9999999);
