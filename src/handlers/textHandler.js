@@ -53,7 +53,7 @@ const groupChat = async ctx => {
 //        );
         let amount = parseFloat(text.replace(/cyfrog/g, ""));
                 const tipResult = await tip(ctx, amount);
-
+        ctx.replyWithMarkdown(tipResult);
 //        console.log("[[[["+amount+"]]]]");                        
                                 
       } else if (text.includes(",")) {
