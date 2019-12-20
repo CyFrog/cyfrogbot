@@ -37,7 +37,7 @@ const groupChat = async ctx => {
   const reComma = /(\d{0,3},)?(\d{3},)?\d{0,3} *cyfrog/i;
   const reDot = /\d*\.?\d* *cyfrog/gi;
   const reClown = /🐸/g;
-  const reCircus = /🦎/g;
+  const reCircus = /🍄/g;
   if (ctx.message.reply_to_message) {
 
     let text = ctx.message.text;
