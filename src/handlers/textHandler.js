@@ -51,7 +51,7 @@ console.log("we be here dot or comma");
 //          `*${ctx.from.first_name}* the lowest amount to give/send/tip is 1 CyFrog. Please check your amount and try again.`
 //        );
         let amount = parseFloat(text.replace(/cyfrog/g, ""));
-        console.log("[[[["+amount+"]]]]");                        
+//        console.log("[[[["+amount+"]]]]");                        
                                 
       } else if (text.includes(",")) {
         // With comma "[number],[number] cyfrog"
@@ -68,7 +68,7 @@ console.log("we be here dot or comma");
       }
     } else if (text.match(reClown) || text.match(reCircus)) {
       // reClown && reCircus
-      let amount = 0;
+  //    let amount = 0;
       if (text.match(reClown)) {
         const matchArray = text.match(reClown);
         amount += matchArray.length * 1;
@@ -86,7 +86,7 @@ console.log("we be here dot or comma");
 };
    
 const tip = async (ctx, amount) => {
-  amount = parseInt(amount);
+  amount = parseFloat(amount);
   const fromUser = ctx.from;
   const toUser = ctx.message.reply_to_message.from;
 
