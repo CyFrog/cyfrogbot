@@ -84,9 +84,8 @@ console.log("we be here dot or comma");
   console.log(6666666);
     }
   console.log(777777);
-  }
+  };
   console.log(888888);
-};
    
 const tip = async (ctx, amount) => {
   console.log(9999999);
