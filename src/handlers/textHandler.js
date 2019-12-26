@@ -37,7 +37,8 @@ const groupChat = async ctx => {
       if (text.match(reClown)) { const matchArray = text.match(reClown);  amount += matchArray.length * 0.01; }
       if (text.match(reFlower)) { const matchArray = text.match(reFlower);  amount += matchArray.length * 0.1; }
       if (text.match(reCircus)){ const matchArray = text.match(reCircus); amount += matchArray.length * 1; }
-      if (text.match(reDice)){ const matchArray = text.match(reDice); amount += matchArray.length * 0.03; } //(Math.random() * 6); }
+      if (text.match(reDice)){ dieRoll=parseInt((Math.random() * 6)+1);
+        const matchArray = text.match(reDice); amount += matchArray.length * 0.01 * dieRoll; } //(Math.random() * 6); }
       const tipResult = await tip(ctx, amount); ctx.replyWithMarkdown(tipResult); } } };   
 
 const tip = async (ctx, amount) => {
