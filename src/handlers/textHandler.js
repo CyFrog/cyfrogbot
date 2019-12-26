@@ -18,7 +18,7 @@ const groupChat = async ctx => {
 
   /// Listen for Tip Message from Group Chat  // RegEx "[number] cy";  // Example: "10 cy" , " 10cy" , "10 CyFrog";
   const re = /[0-9]+ *cyfrog/gi;  const reComma = /(\d{0,3},)?(\d{3},)?\d{0,3} *cyfrog/i;  const reDot = /\d*\.?\d* *cyfrog/gi;
-  const reClown = /🐸/g;  const reCircus = /🍄/g;
+  const reClown = /🐸/g;  const reCircus = /🦎/g;
 
   if (ctx.message.reply_to_message) 
   { let text = ctx.message.text;
