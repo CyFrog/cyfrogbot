@@ -18,8 +18,8 @@ const groupChat = async ctx => {
 
   /// Listen for Tip Message from Group Chat  // RegEx "[number] cy";  // Example: "10 cy" , " 10cy" , "10 CyFrog";
   const re = /[0-9]+ *cyfrog/gi;  const reComma = /(\d{0,3},)?(\d{3},)?\d{0,3} *cyfrog/i;  const reDot = /\d*\.?\d* *cyfrog/gi;
-  const reClown = /🐸/g;  const reCircus = /🦎/g; const reFlower = /🌺/g;
-
+  const reClown = /🐸/g;  const reCircus = /🦎/g; const reFlower = /🌺/g; const reDice = /🎲/g;
+  
   if (ctx.message.reply_to_message) 
   { let text = ctx.message.text;
     if (  parseFloat(text.match(reDot)) || parseFloat(text.match(reComma))) 
@@ -32,11 +32,12 @@ const groupChat = async ctx => {
       else if (text.match(re)) 
       { let amount = ctx.message.text.match(re)[0].split(" ")[0];
         const tipResult = await tip(ctx, amount); ctx.replyWithMarkdown(tipResult); } } 
-    else if (text.match(reClown) || text.match(reCircus) || text.match(reFlower)) 
+    else if (text.match(reClown) || text.match(reCircus) || text.match(reFlower) || text.match(reDice)) 
     { let amount = 0; 
       if (text.match(reClown)) { const matchArray = text.match(reClown);  amount += matchArray.length * 0.01; }
       if (text.match(reFlower)) { const matchArray = text.match(reFlower);  amount += matchArray.length * 0.1; }
       if (text.match(reCircus)){ const matchArray = text.match(reCircus); amount += matchArray.length * 1; }
+      if (text.match(reDice)){ const matchArray = text.match(reDice); amount += matchArray.length * 0.03; } //(Math.random() * 6); }
       const tipResult = await tip(ctx, amount); ctx.replyWithMarkdown(tipResult); } } };   
 
 const tip = async (ctx, amount) => {
