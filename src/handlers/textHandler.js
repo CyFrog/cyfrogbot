@@ -32,7 +32,7 @@ const groupChat = async ctx => {
       else if (text.match(re)) 
       { let amount = ctx.message.text.match(re)[0].split(" ")[0];
         const tipResult = await tip(ctx, amount); ctx.replyWithMarkdown(tipResult); } } 
-    else if (text.match(reClown) || text.match(reCircus || text.match(reFlower)) 
+    else if (text.match(reClown) || text.match(reCircus) || text.match(reFlower)) 
     { let amount = 0; 
       if (text.match(reClown)) { const matchArray = text.match(reClown);  amount += matchArray.length * 0.01; }
       if (text.match(reFlower)) { const matchArray = text.match(reFlower);  amount += matchArray.length * 0.1; }
