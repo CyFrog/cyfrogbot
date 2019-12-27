@@ -58,10 +58,11 @@ const groupChat = async ctx => {
             if(slotText==oldText) { slotCount++; } 
             oldText=slotText; 
             diceText+=slotText;
-            amount+=dieRoll * 0.01 ; }
+            amount+=dieRoll; }
           if(slotCount==0) { amount=parseInt(amount/dieRoll); }
           if(slotCount==1) { amount=amount; }
           if(slotCount==2) { amount=amount*dieRoll; }
+          amount= amount* 0.01 ;
         }
       
  //     if(slotText) { diceText=slotText; } 
