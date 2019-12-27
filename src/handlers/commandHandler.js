@@ -54,8 +54,15 @@ const start = async ctx => {
 
 const help = ctx => {
   helpMsg = `
-🐸*CyFrog HELP PAGE*🐸\nWhat can I help you with? Here are a list of my commands:
-                          
+🐸*CyFrog HELP PAGE*🐸\n
+
+To tip just type a number and cyfrog such as 0.01 cyfrog when replying to a message 
+or use a symbol such as 🐸=0.01 or 🎲=0.01x1-6 or 🌺=0.10 or 🦎=1
+
+What can I help you with? 
+
+Here are a list of my commands:
+
 Type:
 
 /deposit - for information on depositing 
