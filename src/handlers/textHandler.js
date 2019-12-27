@@ -17,6 +17,7 @@ const privateChat = ctx => {
 const groupChat = async ctx => {
   let dice=["🎲","⚀","⚁","⚂","⚃","⚄","⚅"]; 
   let slot=["🎰","🍒","🍇","🍋","🍊","🔔","🐸"]; 
+  let slotResults=["🎰","🎰","🎰"];
   /// Listen for Tip Message from Group Chat  // RegEx "[number] cy";  // Example: "10 cy" , " 10cy" , "10 CyFrog";
   const re = /[0-9]+ *cyfrog/gi;  const reComma = /(\d{0,3},)?(\d{3},)?\d{0,3} *cyfrog/i;  const reDot = /\d*\.?\d* *cyfrog/gi;
   // const re = /rain [0-9]+/gi; 
@@ -49,25 +50,23 @@ const groupChat = async ctx => {
             diceText+=dice[dieRoll]+" ";
             amount+=dieRoll * 0.01 ; } }
 
-        let slotText=""; let oldText=""; let slotCount=0; // let firstText="";
+        let slotText=""; let oldText="";
         if (text.match(reSlot)){ 
           const matchArray = text.match(reSlot);
           for(i=0; i<3; i++) { 
-            dieRoll=parseInt((Math.random() * 6)+1);
-            slotText=slot[dieRoll];
-            if(slotText==oldText) { slotCount++; } 
-            oldText=slotText; // if(firstText=="") { firstText=slotText; }
-            diceText+=slotText;
-            amount+=dieRoll; }
-          if(slotCount==0) { amount=parseInt(amount/dieRoll); }
-//          if(slotCount==1) { amount=amount; }
-          //          if((slotCount==1)||(slotText==firstText)) { amount=amount; }
-          if(slotCount==2) { amount=amount*dieRoll; }
+            dieRoll=parseInt((Math.random() * 6)+1); slotResults[i]=slot[dieRoll]; diceText+=slotResults[i]; amount+=dieRoll; }
+          if(slotCount==0) { amount=parseInt(amount/3); }
+          if((slotResults[0]==slotResults[1])||(slotResults[1]==slotResults[2])||(slotResults[0]==slotResults[2])) { ; }
+          else { amount=parseInt(amount/3); }      
           amount= amount* 0.01 ;
+          if(diceText=="🍒🍒🍒") { amount=0.75; }
+          if(diceText=="🍇🍇🍇") { amount=0.20; }
+          if(diceText=="🍋🍋🍋") { amount=0.30; }
+          if(diceText=="🍊🍊🍊") { amount=0.40; }
+          if(diceText=="🔔🔔🔔") { amount=0.50; }
+          if(diceText=="🐸🐸🐸") { amount=1.00; }
         }
       
- //     if(slotText) { diceText=slotText; } 
-//        amount += matchArray.length * 0.01 * dieRoll; } //(Math.random() * 6); }
       const tipResult = await tip(ctx, amount); ctx.replyWithMarkdown(tipResult+" "+diceText); } } };   
 
 const tip = async (ctx, amount) => {
