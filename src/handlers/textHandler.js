@@ -50,12 +50,10 @@ const groupChat = async ctx => {
             diceText+=dice[dieRoll]+" ";
             amount+=dieRoll * 0.01 ; } }
 
-        let slotText=""; let oldText="";
         if (text.match(reSlot)){ 
-          const matchArray = text.match(reSlot);
+          const matchArray = text.match(reSlot); diceText=""; 
           for(i=0; i<3; i++) { 
             dieRoll=parseInt((Math.random() * 6)+1); slotResults[i]=slot[dieRoll]; diceText+=slotResults[i]; amount+=dieRoll; }
-          if(slotCount==0) { amount=parseInt(amount/3); }
           if((slotResults[0]==slotResults[1])||(slotResults[1]==slotResults[2])||(slotResults[0]==slotResults[2])) { ; }
           else { amount=parseInt(amount/3); }      
           amount= amount* 0.01 ;
