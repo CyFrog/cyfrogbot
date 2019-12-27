@@ -59,7 +59,7 @@ const groupChat = async ctx => {
             amount+=dieRoll * 0.01 ; oldText=slotText; }
           if(slotCount>2) { amount=amount^2; }
         }
-      
+      if(slotText) { diceText=slotText; } 
 //        amount += matchArray.length * 0.01 * dieRoll; } //(Math.random() * 6); }
       const tipResult = await tip(ctx, amount); ctx.replyWithMarkdown(tipResult+" "+diceText); } } };   
 
