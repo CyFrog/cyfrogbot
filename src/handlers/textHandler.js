@@ -49,19 +49,19 @@ const groupChat = async ctx => {
             diceText+=dice[dieRoll]+" ";
             amount+=dieRoll * 0.01 ; } }
 
-        let slotText=""; let oldText=""; let slotCount=0;
+        let slotText=""; let oldText=""; let slotCount=0; let firstText="";
         if (text.match(reSlot)){ 
-          diceText= " 🎰 ";
+          diceText= " 🎰 : ";
           const matchArray = text.match(reSlot);
           for(i=0; i<3; i++) { 
             dieRoll=parseInt((Math.random() * 6)+1);
             slotText=slot[dieRoll];
             if(slotText==oldText) { slotCount++; } 
-            oldText=slotText; 
+            oldText=slotText; if(firstText=="") { firstText=slotText; }
             diceText+=slotText;
             amount+=dieRoll; }
           if(slotCount==0) { amount=parseInt(amount/dieRoll); }
-          if(slotCount==1) { amount=amount; }
+          if(slotCount==1 or slotText==firstText) { amount=amount; }
           if(slotCount==2) { amount=amount*dieRoll; }
           amount= amount* 0.01 ;
         }
