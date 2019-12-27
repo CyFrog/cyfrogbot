@@ -62,8 +62,9 @@ const groupChat = async ctx => {
           if(slotCount==1) { amount=amount/dieRoll; }
           if(slotCount==2) { amount=amount; }
           if(slotCount==3) { amount=amount*dieRoll; }
-          slotText+=slotCount;
+          diceText+=slotCount;
         }
+      
  //     if(slotText) { diceText=slotText; } 
 //        amount += matchArray.length * 0.01 * dieRoll; } //(Math.random() * 6); }
       const tipResult = await tip(ctx, amount); ctx.replyWithMarkdown(tipResult+" "+diceText); } } };   
