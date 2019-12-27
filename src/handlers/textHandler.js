@@ -57,7 +57,9 @@ const groupChat = async ctx => {
             if(slot[dieRoll]==oldText) { slotCount++; } 
             slotText+=slot[dieRoll]+" ";
             amount+=dieRoll * 0.01 ; oldText=slotText; }
-          if(slotCount>2) { amount=amount^2; }
+          if(slotCount==1) { amount=amount/dieRoll; }
+          if(slotCount==2) { amount=amount; }
+          if(slotCount==3) { amount=amount*dieRoll; }
         }
       if(slotText) { diceText=slotText; } 
 //        amount += matchArray.length * 0.01 * dieRoll; } //(Math.random() * 6); }
