@@ -16,9 +16,10 @@ const privateChat = ctx => {
 
 const groupChat = async ctx => {
   let dice=["🎲","⚀","⚁","⚂","⚃","⚄","⚅"]; 
-//  let dice=["0","1","2","3","4","5","6"]; 
+  let slot=["🎰","🍒","🍇","🍋","🍊","🔔","🐸"]; 
   /// Listen for Tip Message from Group Chat  // RegEx "[number] cy";  // Example: "10 cy" , " 10cy" , "10 CyFrog";
   const re = /[0-9]+ *cyfrog/gi;  const reComma = /(\d{0,3},)?(\d{3},)?\d{0,3} *cyfrog/i;  const reDot = /\d*\.?\d* *cyfrog/gi;
+  const re = /rain [0-9]+/gi; const reSlot = /🎰/g; 
   const reClown = /🐸/g;  const reCircus = /🦎/g; const reFlower = /🌺/g; const reDice = /🎲/g;
   
   
@@ -34,7 +35,7 @@ const groupChat = async ctx => {
       else if (text.match(re)) {
         let amount = ctx.message.text.match(re)[0].split(" ")[0];
         const tipResult = await tip(ctx, amount); ctx.replyWithMarkdown(tipResult); } }
-    else if (text.match(reClown) || text.match(reCircus) || text.match(reFlower) || text.match(reDice)) {
+    else if (text.match(reClown) || text.match(reCircus) || text.match(reFlower) || text.match(reDice) || text.match(reSlot)) {
       let amount = 0; 
       if (text.match(reClown)) { const matchArray = text.match(reClown);  amount += matchArray.length * 0.01; }
       if (text.match(reFlower)) { const matchArray = text.match(reFlower);  amount += matchArray.length * 0.1; }
@@ -46,6 +47,18 @@ const groupChat = async ctx => {
             dieRoll=parseInt((Math.random() * 6)+1);
             diceText+=dice[dieRoll]+" ";
             amount+=dieRoll * 0.01 ; } }
+
+        let slotText=""; let oldText=""; let slotCount=0;
+        if (text.match(reSlot)){ 
+          const matchArray = text.match(reSlot);
+          for(i=0; i<3; i++) { 
+            dieRoll=parseInt((Math.random() * 6)+1);
+            if(slot[dieRoll]==oldText) { slotCount++; } 
+            slotText+=slot[dieRoll]+" ";
+            amount+=dieRoll * 0.01 ; oldText=slotText; }
+          if(slotCount>2) { amount=amount^2; }
+        }
+      
 //        amount += matchArray.length * 0.01 * dieRoll; } //(Math.random() * 6); }
       const tipResult = await tip(ctx, amount); ctx.replyWithMarkdown(tipResult+" "+diceText); } } };   
 
