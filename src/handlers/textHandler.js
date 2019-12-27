@@ -62,7 +62,6 @@ const groupChat = async ctx => {
           if(slotCount==0) { amount=parseInt(amount/dieRoll); }
           if(slotCount==1) { amount=amount; }
           if(slotCount==2) { amount=amount*dieRoll; }
-          diceText+=slotCount;
         }
       
  //     if(slotText) { diceText=slotText; } 
