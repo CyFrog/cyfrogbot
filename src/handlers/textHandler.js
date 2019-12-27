@@ -42,7 +42,7 @@ const groupChat = async ctx => {
       let diceText="";
         if (text.match(reDice)){ 
           const matchArray = text.match(reDice);
-          for(i=1; i<matchArray.length; i++) { 
+          for(i=0; i<matchArray.length; i++) { 
             dieRoll=parseInt((Math.random() * 6)+1);
             diceText+=dice[dieRoll]+" ";
             amount+=dieRoll * 0.01 ; } }
