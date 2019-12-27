@@ -56,8 +56,9 @@ const help = ctx => {
   helpMsg = `
 🐸*CyFrog HELP PAGE*🐸\n
 
-To tip just type a number and cyfrog such as 0.01 cyfrog when replying to a message 
-or use a symbol such as 🐸=0.01 or 🎲=0.01x1-6 or 🌺=0.10 or 🦎=1
+To tip just type a number and cyfrog 
+eg. "0.01 cyfrog" when replying to a message 
+or 🐸=0.01 or 🎲=0.01x1-6 or 🌺=0.10 or 🦎=1
 
 What can I help you with? 
 
