@@ -27,7 +27,7 @@ const groupChat = async ctx => {
     { text = text.includes(".") ? text.match(reDot)[0] : text.match(reComma)[0];
       if (text.includes(".")) 
       { let amount = parseFloat(text.replace(/cyfrog/g, ""));
-        const tipResult = await tip(ctx, amount); ctx.replyWithMarkdown(tipResult); }
+        const tipResult = await tip(ctx, amount); ctx.replyWithMarkdown(diceText,tipResult); }
       else if (text.includes(",")) 
       { let amount = text.replace(/,/g, ""); const tipResult = await tip(ctx, amount); ctx.replyWithMarkdown(tipResult); }
       else if (text.match(re)) 
@@ -38,9 +38,15 @@ const groupChat = async ctx => {
       if (text.match(reClown)) { const matchArray = text.match(reClown);  amount += matchArray.length * 0.01; }
       if (text.match(reFlower)) { const matchArray = text.match(reFlower);  amount += matchArray.length * 0.1; }
       if (text.match(reCircus)){ const matchArray = text.match(reCircus); amount += matchArray.length * 1; }
-      if (text.match(reDice)){ dieRoll=parseInt((Math.random() * 6)+1);
-        const matchArray = text.match(reDice); amount += matchArray.length * 0.01 * dieRoll; } //(Math.random() * 6); }
-      const tipResult = await tip(ctx, amount); ctx.replyWithMarkdown(tipResult); } } };   
+      let diceText="";
+        if (text.match(reDice)){ 
+          const matchArray = text.match(reDice);
+          for(i=1; i<matchArray.length; i++) { 
+            dieRoll=parseInt((Math.random() * 6)+1);
+            diceText+=dice[dieRoll]+" ";
+            amount+=dieRoll * 0.01 ; } }
+//        amount += matchArray.length * 0.01 * dieRoll; } //(Math.random() * 6); }
+      const tipResult = await tip(ctx, amount); ctx.replyWithMarkdown(tipResult+" "+diceText); } } };   
 
 const tip = async (ctx, amount) => {
   amount = parseFloat(amount);
