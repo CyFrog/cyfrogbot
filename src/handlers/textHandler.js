@@ -28,12 +28,12 @@ const groupChat = async ctx => {
       text = text.includes(".") ? text.match(reDot)[0] : text.match(reComma)[0];
       if (text.includes(".")) {
         let amount = parseFloat(text.replace(/cyfrog/g, ""));
-        const tipResult = await tip(ctx, amount); ctx.replyWithMarkdown(diceText,tipResult); }
+        const tipResult = await tip(ctx, amount); ctx.replyWithMarkdown(tipResult); }
       else if (text.includes(",")) {
         let amount = text.replace(/,/g, ""); const tipResult = await tip(ctx, amount); ctx.replyWithMarkdown(tipResult); }
       else if (text.match(re)) {
         let amount = ctx.message.text.match(re)[0].split(" ")[0];
-        const tipResult = await tip(ctx, amount); ctx.replyWithMarkdown(tipResult); } } 
+        const tipResult = await tip(ctx, amount); ctx.replyWithMarkdown(tipResult); } }
     else if (text.match(reClown) || text.match(reCircus) || text.match(reFlower) || text.match(reDice)) {
       let amount = 0; 
       if (text.match(reClown)) { const matchArray = text.match(reClown);  amount += matchArray.length * 0.01; }
