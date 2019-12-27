@@ -19,7 +19,8 @@ const groupChat = async ctx => {
   let slot=["🎰","🍒","🍇","🍋","🍊","🔔","🐸"]; 
   /// Listen for Tip Message from Group Chat  // RegEx "[number] cy";  // Example: "10 cy" , " 10cy" , "10 CyFrog";
   const re = /[0-9]+ *cyfrog/gi;  const reComma = /(\d{0,3},)?(\d{3},)?\d{0,3} *cyfrog/i;  const reDot = /\d*\.?\d* *cyfrog/gi;
-  const re = /rain [0-9]+/gi; const reSlot = /🎰/g; 
+  // const re = /rain [0-9]+/gi; 
+  const reSlot = /🎰/g; 
   const reClown = /🐸/g;  const reCircus = /🦎/g; const reFlower = /🌺/g; const reDice = /🎲/g;
   
   
