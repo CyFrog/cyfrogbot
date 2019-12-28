@@ -51,7 +51,7 @@ const groupChat = async ctx => {
             amount+=dieRoll * 0.01 ; } }
 
         if (text.match(reSlot)){ 
-          const matchArray = text.match(reSlot); diceText=""; 
+          const matchArray = text.match(reSlot); diceText=""; amount=0;
           for(i=0; i<3; i++) { 
             dieRoll=parseInt((Math.random() * 6)+1); slotResults[i]=slot[dieRoll]; diceText+=slotResults[i]; amount+=dieRoll; }
           if((slotResults[0]==slotResults[1])||(slotResults[1]==slotResults[2])||(slotResults[0]==slotResults[2])) { ; }
