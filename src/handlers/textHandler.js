@@ -38,8 +38,7 @@ const groupChat = async ctx => {
         let amount = ctx.message.text.match(re)[0].split(" ")[0];
         const tipResult = await tip(ctx, amount); ctx.replyWithMarkdown(tipResult); } }
     else if (text.match(reFaucet)) {
-      let amount = 0.01; 
-        const tipResult = await tip(ctx, amount); ctx.replyWithMarkdown(tipResult); } }    
+      let amount = 0.01; const tipResult = await tip(ctx, amount); ctx.replyWithMarkdown(tipResult); }  
     else if (text.match(reClown) || text.match(reCircus) || text.match(reFlower) || text.match(reDice) || text.match(reSlot)) {
       let amount = 0; 
       if (text.match(reClown)) { const matchArray = text.match(reClown);  amount += matchArray.length * 0.01; }
