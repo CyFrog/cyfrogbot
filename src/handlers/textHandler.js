@@ -1,5 +1,5 @@
 const Markup = require("telegraf/markup");
-// const { getSession } = require("../../dynamoDB");
+const { getSession } = require("../dynamoDB");
 const { sessionInit } = require("../sessionInit");
 const { transactionInit } = require("../transactionInit");
 const { dbLock } = require("../dbLock/dbLock");
@@ -17,8 +17,8 @@ const privateChat = ctx => {
 
 const groupChat = async ctx => {
 
-//  const session = await getSession(ctx.from.id); if (!session.wallet.honkPoints) await sessionInit(ctx);
-//  const honkPoints = session.wallet.honkPoints; if(honkPoints<0.01) { ctx.message.text="ribbit"; }
+const session = await getSession(ctx.from.id); if (!session.wallet.honkPoints) await sessionInit(ctx);
+const honkPoints = session.wallet.honkPoints; if(honkPoints<0.01) { ctx.message.text="ribbit"; }
   
   let dice=["🎲","⚀","⚁","⚂","⚃","⚄","⚅"]; 
   let slot=["🎰","🍒","🍇","🍋","🍊","🔔","🐸"]; 
