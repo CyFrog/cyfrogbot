@@ -32,7 +32,7 @@
 //// });
 
 // bot.catch(e => console.log(e));
-console.log("Hello World");
+console.log("Hello remote");
 // commandHandler(bot);
 
 //// Text Handler must be last updates handler !
