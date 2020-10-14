@@ -32,7 +32,7 @@
 //// });
 
 // bot.catch(e => console.log(e));
-console.log("Hello remote");
+console.log("Hello Cyfrog");
 // commandHandler(bot);
 
 //// Text Handler must be last updates handler !
