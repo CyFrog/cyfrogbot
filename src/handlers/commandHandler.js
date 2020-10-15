@@ -1,5 +1,5 @@
- const Markup = require("telegraf/markup");
-// const { sessionInit } = require("../sessionInit");
+const Markup = require("telegraf/markup");
+const { sessionInit } = require("../sessionInit");
 // const { deposit } = require("./commands/deposit");
 // const { balance } = require("./commands/balance");
 // const { withdraw } = require("./commands/withdraw");
