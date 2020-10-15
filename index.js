@@ -3,7 +3,7 @@ require("dotenv").config();
 const Telegraf = require("telegraf");
 const session = require("telegraf/session");
 const { textHandler } = require("./src/handlers/textHandler");
-// const { commandHandler } = require("./src/handlers/commandHandler");
+const { commandHandler } = require("./src/handlers/commandHandler");
 // const commandParts = require("telegraf-command-parts");
 // const { notification } = require("./src/notification");
 // const rateLimit = require("telegraf-ratelimit");
