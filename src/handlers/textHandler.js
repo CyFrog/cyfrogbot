@@ -1,9 +1,9 @@
-const Markup = require("telegraf/markup");
-const { getSession } = require("../dynamoDB");
-const { sessionInit } = require("../sessionInit");
-const { transactionInit } = require("../transactionInit");
-const { dbLock } = require("../dbLock/dbLock");
-const { toggleLock } = require("../dbLock/toggleLock");
+// const Markup = require("telegraf/markup");
+// const { getSession } = require("../dynamoDB");
+// const { sessionInit } = require("../sessionInit");
+// const { transactionInit } = require("../transactionInit");
+// const { dbLock } = require("../dbLock/dbLock");
+// const { toggleLock } = require("../dbLock/toggleLock");
 
 module.exports.textHandler = async bot => {
   bot.on("text", async ctx => {
@@ -77,27 +77,27 @@ const groupChat = async ctx => {
       
       const tipResult = await tip(ctx, amount); ctx.replyWithMarkdown(tipResult+" "+diceText); } } };   
 
-const tip = async (ctx, amount) => {
-  amount = parseFloat(amount);
-  const fromUser = ctx.from;
-  const toUser = ctx.message.reply_to_message.from;
+//const tip = async (ctx, amount) => {
+//  amount = parseFloat(amount);
+//  const fromUser = ctx.from;
+//  const toUser = ctx.message.reply_to_message.from;
 
   if (fromUser.id === toUser.id) return `*${fromUser.first_name}*  👏`;
-  try { await dbLock(ctx, fromUser.id); if (fromUser.id !== toUser.id) await dbLock(ctx, toUser.id); } catch (err) {
-    console.log("testHandler:: 🗝 dbLock error while trying make tip:", err);
-    return `*${fromUser.first_name}* sorry, try later.`; }
+//  try { await dbLock(ctx, fromUser.id); if (fromUser.id !== toUser.id) await dbLock(ctx, toUser.id); } catch (err) {
+//    console.log("testHandler:: 🗝 dbLock error while trying make tip:", err);
+//    return `*${fromUser.first_name}* sorry, try later.`; }
 
-  await sessionInit(ctx);
+//  await sessionInit(ctx);
 
   // Tip to bot deprecated
-  if (toUser.is_bot) {
-    if (fromUser.id !== toUser.id) toggleLock(ctx, toUser.id); toggleLock(ctx, fromUser.id);
-    return `*${fromUser.first_name}* you can't tip to bot`; }
-  const transactionSuccess = await transactionInit(amount, ctx, toUser);
-  if (fromUser.id !== toUser.id) toggleLock(ctx, toUser.id); toggleLock(ctx, fromUser.id);
-  let msg = "";
-  if (transactionSuccess) {
-    msg += `*${fromUser.first_name}* tipped ${amount.toLocaleString("en-US")} 🐸*CyFrog*🐸 to *${toUser.first_name}*`; }
-  else {
-    console.log("Need more CyFrog"); msg += `*${fromUser.first_name}* you need more 🐸*CyFrog*🐸`; } 
-  return msg; };
+//  if (toUser.is_bot) {
+//    if (fromUser.id !== toUser.id) toggleLock(ctx, toUser.id); toggleLock(ctx, fromUser.id);
+//    return `*${fromUser.first_name}* you can't tip to bot`; }
+//  const transactionSuccess = await transactionInit(amount, ctx, toUser);
+//  if (fromUser.id !== toUser.id) toggleLock(ctx, toUser.id); toggleLock(ctx, fromUser.id);
+//  let msg = "";
+//  if (transactionSuccess) {
+//    msg += `*${fromUser.first_name}* tipped ${amount.toLocaleString("en-US")} 🐸*CyFrog*🐸 to *${toUser.first_name}*`; }
+//  else {
+//    console.log("Need more CyFrog"); msg += `*${fromUser.first_name}* you need more 🐸*CyFrog*🐸`; } 
+//  return msg; };
