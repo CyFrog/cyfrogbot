@@ -17,22 +17,22 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
       console.log(`limit exceed for user: ${ctx.from.id}`);
     }
   };
-// bot.use(rateLimit(limitConfig))
-// bot.use(session());
-// bot.use(commandParts());
- // bot.context.db = { lockedUsers: [] };
+ bot.use(rateLimit(limitConfig))
+ bot.use(session());
+ bot.use(commandParts());
+ bot.context.db = { lockedUsers: [] };
 
 
 
-bot.use(Telegraf.log()); // for debugging
- Logger
- bot.use(async (ctx, next) => {
-   console.log("**********");
-   if (ctx.updateSubTypes[0] === 'text') console.log(`text:${ctx.message.text}\nfrom ${ctx.from.id}`);
-   await next();
- });
+//bot.use(Telegraf.log()); // for debugging
+//// Logger
+// bot.use(async (ctx, next) => {
+//   console.log("**********");
+//   if (ctx.updateSubTypes[0] === 'text') console.log(`text:${ctx.message.text}\nfrom ${ctx.from.id}`);
+//   await next();
+// });
 
-// bot.catch(e => console.log(e));
+bot.catch(e => console.log(e));
 
 console.log("Hello Cyfrog");
 
@@ -46,7 +46,7 @@ bot.telegram.getMe().then(res => console.log(res));
  console.log("Bot running locally\n");
  notification(bot);
 
-// bot.launch();
-// bot.telegram.getMe().then(res => console.log(res));
-// console.log("Bot running locally\n");
-// notification(bot);
+bot.launch();
+bot.telegram.getMe().then(res => console.log(res));
+console.log("Bot running locally\n");
+notification(bot);
