@@ -17,9 +17,9 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
       console.log(`limit exceed for user: ${ctx.from.id}`);
     }
   };
- bot.use(rateLimit(limitConfig))
- bot.use(session());
- bot.use(commandParts());
+// bot.use(rateLimit(limitConfig))
+// bot.use(session());
+// bot.use(commandParts());
  // bot.context.db = { lockedUsers: [] };
 
 
