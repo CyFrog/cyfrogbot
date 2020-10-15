@@ -38,8 +38,8 @@ console.log("Hello Cyfrog");
 
 commandHandler(bot);
 
-//// Text Handler must be last updates handler !
-// textHandler(bot);
+// Text Handler must be last updates handler !
+ textHandler(bot);
 
 // bot.launch();
 // bot.telegram.getMe().then(res => console.log(res));
