@@ -1,7 +1,7 @@
 require("dotenv").config();
 // Hello Cyfrog
 const Telegraf = require("telegraf");
-// const session = require("telegraf/session");
+const session = require("telegraf/session");
 // const { textHandler } = require("./src/handlers/textHandler");
 // const { commandHandler } = require("./src/handlers/commandHandler");
 // const commandParts = require("telegraf-command-parts");
