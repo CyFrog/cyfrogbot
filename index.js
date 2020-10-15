@@ -24,13 +24,13 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
 
 
 
-// bot.use(Telegraf.log()); // for debugging
-// Logger
-// bot.use(async (ctx, next) => {
-//   console.log("**********");
-//   if (ctx.updateSubTypes[0] === 'text') console.log(`text:${ctx.message.text}\nfrom ${ctx.from.id}`);
-//   await next();
-// });
+bot.use(Telegraf.log()); // for debugging
+ Logger
+ bot.use(async (ctx, next) => {
+   console.log("**********");
+   if (ctx.updateSubTypes[0] === 'text') console.log(`text:${ctx.message.text}\nfrom ${ctx.from.id}`);
+   await next();
+ });
 
 // bot.catch(e => console.log(e));
 
@@ -42,9 +42,9 @@ commandHandler(bot);
  textHandler(bot);
 
 bot.launch();
- bot.telegram.getMe().then(res => console.log(res));
+bot.telegram.getMe().then(res => console.log(res));
  console.log("Bot running locally\n");
-// notification(bot);
+ notification(bot);
 
 // bot.launch();
 // bot.telegram.getMe().then(res => console.log(res));
