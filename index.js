@@ -20,7 +20,7 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
  bot.use(rateLimit(limitConfig))
  bot.use(session());
  bot.use(commandParts());
- bot.context.db = { lockedUsers: [] };
+ // bot.context.db = { lockedUsers: [] };
 
 
 
