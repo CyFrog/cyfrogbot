@@ -8,7 +8,7 @@ const commandParts = require("telegraf-command-parts");
 const { notification } = require("./src/notification");
 const rateLimit = require("telegraf-ratelimit");
 
-// const bot = new Telegraf(process.env.BOT_TOKEN);
+const bot = new Telegraf(process.env.BOT_TOKEN);
 
 // const limitConfig = {
 //    window: 3000,
