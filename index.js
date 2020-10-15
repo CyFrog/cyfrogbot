@@ -41,10 +41,10 @@ commandHandler(bot);
 // Text Handler must be last updates handler !
  textHandler(bot);
 
-// bot.launch();
-// bot.telegram.getMe().then(res => console.log(res));
-// console.log("Bot running locally\n");
-// notification(bot);
+bot.launch();
+ bot.telegram.getMe().then(res => console.log(res));
+ console.log("Bot running locally\n");
+ notification(bot);
 
 // bot.launch();
 // bot.telegram.getMe().then(res => console.log(res));
