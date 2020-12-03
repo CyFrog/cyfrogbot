@@ -1,14 +1,14 @@
-require("dotenv").config();
+// require("dotenv").config();
 // Hello Cyfrog
-const Telegraf = require("telegraf");
-const session = require("telegraf/session");
-const { textHandler } = require("./src/handlers/textHandler");
-const { commandHandler } = require("./src/handlers/commandHandler");
-const commandParts = require("telegraf-command-parts");
-const { notification } = require("./src/notification");
-const rateLimit = require("telegraf-ratelimit");
+// const Telegraf = require("telegraf");
+// const session = require("telegraf/session");
+// const { textHandler } = require("./src/handlers/textHandler");
+// const { commandHandler } = require("./src/handlers/commandHandler");
+// const commandParts = require("telegraf-command-parts");
+// const { notification } = require("./src/notification");
+// const rateLimit = require("telegraf-ratelimit");
 
-const bot = new Telegraf(process.env.BOT_TOKEN);
+// const bot = new Telegraf(process.env.BOT_TOKEN);
 
  const limitConfig = {
     window: 3000,
@@ -17,10 +17,10 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
       console.log(`limit exceed for user: ${ctx.from.id}`);
     }
   };
- bot.use(rateLimit(limitConfig))
- bot.use(session());
- bot.use(commandParts());
- bot.context.db = { lockedUsers: [] };
+ // bot.use(rateLimit(limitConfig))
+ // bot.use(session());
+ // bot.use(commandParts());
+ // bot.context.db = { lockedUsers: [] };
 
 
 
@@ -32,21 +32,21 @@ const bot = new Telegraf(process.env.BOT_TOKEN);
 //   await next();
 // });
 
-bot.catch(e => console.log(e));
+// bot.catch(e => console.log(e));
 
 console.log("Hello Cyfrog");
 
-commandHandler(bot);
+// commandHandler(bot);
 
-// Text Handler must be last updates handler !
- textHandler(bot);
+//  textHandler(bot); // Text Handler must be last updates handler !
 
-bot.launch();
-bot.telegram.getMe().then(res => console.log(res));
+
+// bot.launch();
+// bot.telegram.getMe().then(res => console.log(res));
  console.log("Bot running locally\n");
- notification(bot);
+ // notification(bot);
 
-bot.launch();
-bot.telegram.getMe().then(res => console.log(res));
-console.log("Bot running locally\n");
-notification(bot);
+// bot.launch();
+// bot.telegram.getMe().then(res => console.log(res));
+// console.log("Bot running locally\n");
+// notification(bot);
