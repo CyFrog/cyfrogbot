@@ -1,7 +1,7 @@
 const Markup = require("telegraf/markup");
 // const { getSession } = require("../dynamoDB");
 const { sessionInit } = require("../sessionInit");
-// const { transactionInit } = require("../transactionInit");
+const { transactionInit } = require("../transactionInit");
 // const { dbLock } = require("../dbLock/dbLock");
 // const { toggleLock } = require("../dbLock/toggleLock");
 
