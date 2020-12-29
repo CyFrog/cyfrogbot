@@ -34,7 +34,7 @@
 
 // bot.catch(e => console.log(e));
 
-console.log("Hello Cyfrog");
+console.log("Hodl Cyfrog");
 
 // commandHandler(bot);
 
