@@ -1,4 +1,4 @@
-// require("dotenv").config();
+ require("dotenv").config();
 // Hello Cyfrog
 // const Telegraf = require("telegraf");
 // const session = require("telegraf/session");
