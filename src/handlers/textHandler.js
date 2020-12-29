@@ -3,7 +3,7 @@ const Markup = require("telegraf/markup");
 const { sessionInit } = require("../sessionInit");
 const { transactionInit } = require("../transactionInit");
 const { dbLock } = require("../dbLock/dbLock");
-// const { toggleLock } = require("../dbLock/toggleLock");
+const { toggleLock } = require("../dbLock/toggleLock");
 
 module.exports.textHandler = async bot => {
   bot.on("text", async ctx => {
